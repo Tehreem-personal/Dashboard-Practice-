@@ -1,5 +1,5 @@
 import React from "react";
-import DefaultLayout from "../../HomeLayout/Layout";
+import DefaultLayout from "../../HomeLayout/index";
 import TopCards from "./TopCards";
 import MainCards from "./MainCards";
 import TransactionTables from "./TransactionTable";
@@ -9,8 +9,9 @@ const Dashboard = () => {
     <DefaultLayout>
       <TopCards />
       <MainCards />
-      <ActiveUsers />
       <TransactionTables />
+      <ActiveUsers />
+     
     </DefaultLayout>
   );
 };

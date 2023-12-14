@@ -1,9 +1,11 @@
 import styled from "styled-components";
 import { PieChartOutlined } from "@ant-design/icons";
+import banner1 from "../assets/car1.jpg";
+import banner2 from "../assets/car2.jpg";
 import {
   Card,
   Button,
-  Divider,
+ 
   Row,
   Menu,
   Breadcrumb,
@@ -13,11 +15,12 @@ import {
   Modal,
   Col,
   DatePicker,
+  Typography,
 } from "antd";
 const { Header, Content, Sider, Footer } = Layout;
-
+const { Text } = Typography;
 export const StyledHeader = styled(Header)`
-  height: 100px;
+  height: 50px;
   margin-top: "0px";
   line-height: 5px;
   background-color: transparent;
@@ -31,39 +34,14 @@ export const StyledBreadCrumb = styled(Breadcrumb)`
   font-size: medium;
   margin-bottom: 10px;
 `;
-export const StyledText = styled("Text")`
+export const StyledText = styled(Text)`
   font-size: 28px;
-  color: white;
-  background-color: #1f618d;
-  border-radius: 10px;
-  font-weight: 500;
-
-  padding: 20px;
-  font-family: Arial, Helvetica, sans-serif;
-`;
-export const StyledImageCard = styled(Card)`
-  background-color: #1f618d;
-  width: 350px;
-  height: 290px;
-  margin-bottom: 10px;
-  padding: 20px;
-  color: white;
-  text-align: left;
-`;
-export const StyledImageText = styled("Text")`
-  font-size: 28px;
-  color: white;
+  color: #faae09;
+  border-radius: 70px;
   font-weight: 700;
-  padding: 15px;
-  font-family: Arial, Helvetica, sans-serif;
+  padding: 20px;
 `;
-export const StyledInput = styled(Input)`
-  width: 30%;
-  height: 25px;
-  margin-left: 10%;
-  border-radius: 10px;
-  border-color: #1f618d;
-`;
+
 export const StyledFormInput = styled(Input)`
   &[type="number"] {
     &::-webkit-outer-spin-button,
@@ -130,14 +108,35 @@ export const StyledGreenButton = styled(Button)`
 `;
 export const StyledImageButton = styled(Button)`
   background-color: white;
-  color: #1f618d;
-  font-size: 24px;
+  color: #e4e0d9;
+  font-size: 32px;
   font-weight: 600;
-  margin-top: 10px;
+  margin-top: 30px;
+  background-image: url(${banner2});
+  opacity: 0.9;
   font-family: "Times New Roman", Times, serif;
-  width: 70%;
-  height: 40px;
+  width: 180px;
+  height: 180px;
+  border-radius: 100px ;
 `;
+export const StyledSearchButton = styled(Button)`
+  background-color: #1f618d;
+  border: 2px solid white;
+  color:white ;
+  font-size: 36px;
+  font-weight: 800;
+  margin-top:40px;
+  opacity: 0.9;
+  font-family: "Times New Roman", Times, serif;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  border-radius: 0px 100px;
+  height: 90px;
+`;
+
 export const StyledBlueButton = styled(Button)`
   background-color: blue;
   color: white;
@@ -203,10 +202,18 @@ export const StyledTableCard = styled(Card)`
   border-radius: 0px;
   margin-top: 10px;
 `;
-export const StyledDivider = styled(Divider)`
-  margin: 0;
-  padding: 0;
+export const StyledLandingCard = styled(Card)`
+  border-radius: 0px;
+  background-image: url(${banner1});
+  background-size: cover;
+  object-fit: contain;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
 `;
+
 export const StyledRow = styled(Row)`
   margin-bottom: 20px;
   padding: 8px;

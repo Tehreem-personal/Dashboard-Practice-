@@ -7,21 +7,8 @@ import {
   StyledFormInput,
   StyledSubmitButton,
 } from "../../style";
+import { FieldConfig, VehicleModalProps } from "./type";
 
-interface FieldConfig {
-  label: string;
-  name: string;
-  rules?: any[];
-  inputComponent?: React.ReactNode;
-}
-
-interface VehicleModalProps {
-  isModalVisible: boolean;
-  handleCancel: () => void;
-  onFinish: (values: any) => void;
-  form: any;
-  isEditModal: boolean;
-}
 
 const fieldConfigs: FieldConfig[] = [
   {

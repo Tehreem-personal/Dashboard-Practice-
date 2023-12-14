@@ -1,27 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { Vehicle, VehicleState } from "./type";
 
-export interface Vehicle {
-  id: number;
-  title: string;
-  price: string;
-  phone_number: string;
-  year: number;
-  expiration_date: string;
-  kilometers: number;
-  loaction_name: string;
-  description: string;
-}
-
-interface VehicleState {
-  vehicle: Vehicle[];
-  isLoading: boolean;
-  error?: boolean;
-}
-
-const initialState: VehicleState = {
-  vehicle: [],
-  isLoading: false,
-  error: false,
+export const initialState: VehicleState = {
+  vehicles: {
+    vehicleData: [],
+    isLoading: false,
+    error: false,
+  },
 };
 
 export const vehicleSlice = createSlice({
@@ -29,52 +14,54 @@ export const vehicleSlice = createSlice({
   initialState,
   reducers: {
     loadVehicles: (state) => {
-      state.isLoading = true;
+      state.vehicles.isLoading = true;
     },
     vehiclesLoaded: (state, { payload }: PayloadAction<Vehicle[]>) => {
-      state.isLoading = false;
-      state.vehicle = payload;
-      state.error = false;
+      state.vehicles.isLoading = false;
+      state.vehicles.vehicleData = payload;
+      state.vehicles.error = false;
     },
     vehiclesLoadError: (state, { payload }: PayloadAction<any>) => {
-      state.isLoading = false;
-      state.error = true;
+      state.vehicles.isLoading = false;
+      state.vehicles.error = true;
     },
     addOrUpdateVehicle: (
       state,
       { payload }: PayloadAction<{ method: string; data: Vehicle }>
     ) => {
-      state.isLoading = true;
+      state.vehicles.isLoading = true;
     },
     addOrUpdateVehicleSuccess: (state, { payload }) => {
-      state.isLoading = false;
-      const existingVehicle = state.vehicle.find(
+      state.vehicles.isLoading = false;
+      const existingVehicle = state.vehicles.vehicleData.find(
         (vehicle) => vehicle.id === payload.id
       );
 
       if (existingVehicle) {
-        const updatedVehicleIndex = state.vehicle.findIndex(
+        const updatedVehicleIndex = state.vehicles.vehicleData.findIndex(
           (vehicle) => vehicle.id === payload.id
         );
-        if (updatedVehicleIndex !== -1) {
-          state.vehicle[updatedVehicleIndex] = payload;
+        if (updatedVehicleIndex >0) {
+          state.vehicles.vehicleData[updatedVehicleIndex] = payload;
         }
       } else {
-        state.vehicle.push(payload);
+        state.vehicles.vehicleData.push(payload)
       }
     },
     addOrUpdateVehicleFailure: (state) => {
-      state.isLoading = false;
+      state.vehicles.isLoading = false;
     },
     deleteVehicle: (state) => {
-      state.isLoading = true;
+      state.vehicles.isLoading = true;
     },
     deleteVehicleSuccess: (state, { payload }) => {
-      state.isLoading = false;
-      state.vehicle = state.vehicle.filter((vehicle) => vehicle.id !== payload);
+      state.vehicles.isLoading = false;
+      state.vehicles.vehicleData = state.vehicles.vehicleData.filter(
+        (vehicle) => vehicle.id !== payload
+      );
     },
     deleteVehicleFailure: (state) => {
-      state.isLoading = false;
+      state.vehicles.isLoading = false;
     },
   },
 });

@@ -3,7 +3,7 @@ import { StyledCard, StyledIconCard } from "../../style";
 import { StarOutlined } from "@ant-design/icons";
 import { Col, Row, Typography, Space, Flex, Tag } from "antd";
 const { Text, Paragraph } = Typography;
-const TopCards = () => {
+const TopCards:React.FC = () => {
   return (
     <>
       <Row gutter={{ xs: 8, sm: 8, md: 24, lg: 24 }}>

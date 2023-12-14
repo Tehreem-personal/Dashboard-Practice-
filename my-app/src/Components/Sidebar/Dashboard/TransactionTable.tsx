@@ -1,8 +1,9 @@
 import React from 'react'
-import { Card, Col, Row, Table , Flex, Typography, } from 'antd';
+import { Col, Row, Table , Flex, Typography, } from 'antd';
 import { StyledTableCard} from "../../style";
 import type { ColumnsType } from 'antd/es/table';
 const {Text}=Typography;
+
 const columns: ColumnsType =
   [
     {
@@ -41,7 +42,7 @@ const columns: ColumnsType =
       address: 'Sydney No. 1 Lake Park',
     },
   ];
-const TransactionTables = () => {
+const TransactionTables:React.FC = () => {
   return (
     <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 8 }} style={{marginTop:"10px"}}>
     <Col span={12}>
@@ -58,7 +59,7 @@ const TransactionTables = () => {
     <StyledTableCard>
           <Flex justify="space-between">
             <Text strong>Latest Orders</Text>
-            <Text strong>Sort By: Recent</Text>
+            <Text strong>Sort By: Age</Text>
           </Flex>
          
         <Table columns={columns} dataSource={data} size="middle" />

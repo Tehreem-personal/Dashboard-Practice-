@@ -7,15 +7,9 @@ import {
   LockOutlined,
   GlobalOutlined,
 } from '@ant-design/icons';
-
 import { StyledMenu } from '../style';
+import { MenuItem } from './type';
 
-interface MenuItem {
-  label: ReactNode;
-  key: string|number;
-  icon: ReactNode;
-  children?: MenuItem[];
-}
 
 function getItem(label: ReactNode, key: string|number, icon: ReactNode, children?: MenuItem[]): MenuItem {
   return {

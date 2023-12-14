@@ -1,17 +1,11 @@
-
 import React from 'react';
 import "./App.css"
-import Home from "./Components/HomeLayout/Layout"
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Dashboard from "./Components/Sidebar/Dashboard/Dashboard"
 import LandingPage from "./Components/Sidebar/LandingPage/LandingPage"
-
-import MyVehicle from './Components/Sidebar/Vehicle/Vehicle';
-
-
+import MyVehicle from './Components/Sidebar/Vehicle';
 const App = () => {
   return (
-  
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LandingPage />} />
@@ -21,5 +15,4 @@ const App = () => {
     </BrowserRouter>
   );
 };
-
 export default App;
